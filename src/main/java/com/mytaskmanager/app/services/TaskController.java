@@ -21,6 +21,7 @@ public class TaskController {
 	@GetMapping("/test")
 	public String getRequest()
 	{
+		System.out.println("Test GetRequest() Hitted");
 		return "MyTaskManagement is Been Hitted"; 
 	}
 	
@@ -33,25 +34,28 @@ public class TaskController {
 	public Tasks addNewTask(@RequestBody Tasks taskObj)
 	{
 
-//		System.out.println("AddNewTask() Hitted \n"+taskObj);
+		System.out.println("AddNewTask() Hitted \n"+taskObj);
 
-		return tasksServiceObj.saveTask(taskObj);
+	// return tasksServiceObj.saveTask(taskObj);
+		return null;
 
 	}
 
 	@GetMapping("/all")
 	public List<Tasks> getAllTasks()
 	{
-		return tasksServiceObj.getTasks();
+		System.out.println("GetAllTask() Hitted");
+		//return tasksServiceObj.getTasks();
+		return null;
 	}
 	
 
 	@DeleteMapping("/{taskId}")
 	public String deleteTask(@PathVariable Long taskId)
 	{
-		
+		System.out.println("deleteTask() Hitted");
 		try {
-			tasksServiceObj.deleteTask(taskId);
+			//tasksServiceObj.deleteTask(taskId);
 		} catch (Exception e) {
 			return "Error while Deleting the Task";
 		}
@@ -64,10 +68,10 @@ public class TaskController {
 	public Tasks getTask(@PathVariable Long taskId)
 	{
 
-//		System.out.println("GetTask() Hitted");
+		System.out.println("GetTask() Hitted");
 
-		return tasksServiceObj.getTaskById(taskId);
-
+		//return tasksServiceObj.getTaskById(taskId);
+                 return null;
 	}
 
 
